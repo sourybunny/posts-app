@@ -6,6 +6,7 @@ Vue.use(VueRouter)
 import Home from '../src/views/Home.vue';
 import Auth from '../src/views/Auth.vue';
 import UploadPost from '../src/views/UploadPost.vue';
+import Dashboard from '../src/views/Dashboard.vue';
 
 const routes = [
     {
@@ -16,6 +17,9 @@ const routes = [
     },
     {
         path: '/upload', component: UploadPost, meta: {requiresAuth: true}
+    },
+    {
+        path: '/dashboard', component: Dashboard, meta: {requiresAuth: true}
     }
 ]
 const router =  new VueRouter({

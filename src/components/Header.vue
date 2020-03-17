@@ -29,6 +29,9 @@
         </template>
 
         <v-list>
+          <v-list-item v-if="isLoggedIn" to="/dashboard">
+            <v-list-item-title >Dashboard</v-list-item-title>
+          </v-list-item>
           <v-list-item v-if="isLoggedIn" @click="logout">
             <v-list-item-title >Logout</v-list-item-title>
           </v-list-item>

@@ -5,7 +5,7 @@
       <v-row align-center justify-center>
       <v-col cols="12" xs="12"
         sm="4" md="3" v-for="post in posts" :key="post.id">
-          <Post :post="post"/>
+          <PostVertical :post="post"/>
       </v-col>
   </v-row>
   </v-container>
@@ -14,12 +14,12 @@
 
 <script>
 import Carousel from '../components/Carousel';
-import Post from '../components/Post';
+import PostVertical from '../components/PostVertical';
 import posts from '../posts';
 export default {
     components: {
         Carousel,
-        Post
+        PostVertical
     },
     data(){
         return {
