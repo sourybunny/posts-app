@@ -1,6 +1,6 @@
 // import api from '../../api';
 const state = {
-    posts: []
+    
 }
 
 const getters = {

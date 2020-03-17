@@ -7,6 +7,7 @@ import Home from '../src/views/Home.vue';
 import Auth from '../src/views/Auth.vue';
 import UploadPost from '../src/views/UploadPost.vue';
 import Dashboard from '../src/views/Dashboard.vue';
+import Post from '../src/views/Post.vue';
 
 const routes = [
     {
@@ -20,6 +21,9 @@ const routes = [
     },
     {
         path: '/dashboard', component: Dashboard, meta: {requiresAuth: true}
+    },
+    {
+        path: '/post/:id', component: Post, meta: {requiresAuth: false}
     }
 ]
 const router =  new VueRouter({

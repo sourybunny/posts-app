@@ -72,7 +72,7 @@ export default {
       var idxDot = fileName.lastIndexOf(".") + 1;
       var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
       if (event.target.files[0].size <= 2097152) {
-        if(extFile=="jpg" || extFile=="png"){
+        if(extFile=="jpg" || extFile=="png" ||extFile=="jpeg"){
           this.post.image.selectedImage = event.target.files[0];
           this.post.image.previewImage = URL.createObjectURL(
           this.post.image.selectedImage

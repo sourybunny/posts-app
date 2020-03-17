@@ -4,35 +4,21 @@
     class="mx-auto"
   >
     <v-list-item>
-      <v-list-item-avatar color="grey"></v-list-item-avatar>
       <v-list-item-content>
         <v-list-item-title class="headline">{{post.title}}</v-list-item-title>
-        <v-list-item-subtitle>by Kurt Wagner</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
 
     <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg"
+      :src="source"
       height="194"
     ></v-img>
-
-    <v-card-text>
-      
-      {{post.description}}
-    </v-card-text>
-
     <v-card-actions>
-      <v-btn
+      <v-btn :to='`/post/${post.id}`'
         text
         color="deep-purple accent-4"
       >
         Read
-      </v-btn>
-      <v-btn
-        text
-        color="deep-purple accent-4"
-      >
-        Bookmark
       </v-btn>
       <v-spacer></v-spacer>
       <v-btn icon>
@@ -47,7 +33,37 @@
 
 <script>
 export default {
-  props: ['post']
+  props: ['post'],
+  components: {
+  },
+  computed:{
+    source(){
+      return this.intersected?this.post.image:'https://res.cloudinary.com/keyport/image/upload/q_auto,f_auto,w_150/v1553341001/KeyportTV/default_channel_icon.png'
+    }
+  },
+  data(){
+    return {
+      intersected: false,
+      observer: {}
+    }
+  },
+  mounted() {
+    this.observer = new IntersectionObserver(entries => {
+      const image = entries[0];
+      if (image.isIntersecting) {
+        this.intersected = true;
+        this.observer.disconnect();
+      }
+    },{threshold: 0.5});
+
+    this.observer.observe(this.$el);
+  },
+  destroyed() {
+    this.observer.disconnect();
+  },
+  methods: {
+    
+  }
 }
 </script>
 

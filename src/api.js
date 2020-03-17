@@ -29,7 +29,28 @@ const addPost =  (async(post)=>{
    })} 
 })
 
+const getAllPosts =  (async ()=>{
+    
+    try { 
+        return await PostsAxios.get(`posts.json`);
+    }
+    catch{(err=>{
+       console.log(err)
+   })} 
+})
+
+const getPost =  (async (id)=>{
+    try { 
+        return await PostsAxios.get(`posts.json/?id=${id}`);
+    }
+    catch{(err=>{
+       console.log(err)
+   })} 
+})
+
 export default {
     addPost,
-    uploadToCloudinary
+    uploadToCloudinary,
+    getAllPosts,
+    getPost
 }
